@@ -7,7 +7,8 @@ const jwtKey =
 // quickly see what this file exports
 module.exports = {
   authenticate,
-  makejwt
+  makejwt,
+  checkauth
 };
 
 // implementation details
@@ -39,4 +40,16 @@ function makejwt(user) {
   };
   return jwt.sign(payload, jwtKey, options);
 };
+
+
+function checkauth(req, res) {
+  const token = req.body.token;
+  jwt.verify(token, jwtkey, err => {
+    if (err) {
+      res.send(false);
+    } else {
+      res.send(true);
+    }
+  });
+}
 

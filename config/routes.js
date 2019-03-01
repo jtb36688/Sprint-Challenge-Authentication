@@ -8,6 +8,7 @@ const auth = require("../auth/authenticate");
 module.exports = server => {
   server.post("/api/register", register);
   server.post("/api/login", login);
+  server.post("/api/checkauth", auth.checkauth)
   server.get("/api/jokes", auth.authenticate, getJokes);
 };
 
