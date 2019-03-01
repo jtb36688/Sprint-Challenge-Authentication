@@ -44,7 +44,7 @@ function makejwt(user) {
 
 function checkauth(req, res) {
   const token = req.body.token;
-  jwt.verify(token, jwtkey, err => {
+  jwt.verify(token, jwtKey, err => {
     if (err) {
       res.send(false);
     } else {

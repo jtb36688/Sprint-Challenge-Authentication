@@ -1,16 +1,16 @@
 import React from "react";
-import Joke from "./Joke";
+import Joke from "./Joke.js";
 
 const Jokes = props => {
   return (
     <div className="JokesContainer">
       <h2>Jokes List</h2>
       <ul className="JokesList">
-        {props.jokesarray.map(Joke => {
+        {props.jokesarray.map(joke => {
           return (
-            <li key={Joke.id}>
+            <li key={joke.id}>
               <Joke
-                onejoke={Joke.joke}
+                onejoke={joke.joke}
               />
             </li>
           );

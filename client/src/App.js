@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import JokesPage from "./components/JokesPage.js";
-import Authentication from "./Authentication.js";
+import Authentication from "./components/Authentication.js";
 import "./App.css";
 import Login from "./components/Login.js";
 import Register from "./components/Register.js"
