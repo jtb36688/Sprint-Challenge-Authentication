@@ -4,11 +4,11 @@ import Joke from "./Joke.js";
 const Jokes = props => {
   return (
     <div className="JokesContainer">
-      <h2>Jokes List</h2>
+      <h2 className="TitleText">Jokes List</h2>
       <ul className="JokesList">
         {props.jokesarray.map(joke => {
           return (
-            <li key={joke.id}>
+            <li className="JokeContainer" key={joke.id}>
               <Joke
                 onejoke={joke.joke}
               />

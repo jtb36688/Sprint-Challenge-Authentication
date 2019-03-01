@@ -18,7 +18,7 @@ const Authentication = JokesPage => Login => Register =>
       if (localStorage.getItem("jwt")) {
         let token = localStorage.getItem("jwt");
         axios
-          .post("http://localhost:3300/api/checkauth", { token: token })
+          .post("http://localhost:3300/api/checkauth", { token: token } )
           .then(res => {
             res.data ? this.setState({ loggedIn: true }) : localStorage.clear();
           });

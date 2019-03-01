@@ -37,9 +37,11 @@ class JokesPage extends Component {
 
 const buttonstyles = {
   width: '30%',
+  height: '100px',
   backgroundColor: "orange",
   color: "black",
-  textAlign: "center"
+  textAlign: "center",
+  fontSize: "20px"
 }
 
 export default JokesPage;
