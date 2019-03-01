@@ -7,10 +7,12 @@ const jwtKey =
 // quickly see what this file exports
 module.exports = {
   authenticate,
+  makejwt
 };
 
 // implementation details
 function authenticate(req, res, next) {
+  console.log("authenticating", req.headers)
   const token = req.get('Authorization');
 
   if (token) {
@@ -27,3 +29,15 @@ function authenticate(req, res, next) {
     });
   }
 }
+
+function makejwt(user) {
+  const payload = {
+    subject: user.id,
+    username: user.username
+  };
+  const options = {
+    expiresIn: "8h"
+  };
+  return jwt.sign(payload, jwtKey, options);
+};
+
