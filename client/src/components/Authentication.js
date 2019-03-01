@@ -16,9 +16,9 @@ const Authentication = JokesPage => Login => Register =>
 
     componentDidMount() {
       if (localStorage.getItem("jwt")) {
-        let token = localStorage.getItem("jwt")
+        let token = localStorage.getItem("jwt");
         axios
-          .post("http://localhost:5000/api/auth/checkauth", {token: token})
+          .post("http://localhost:5000/api/auth/checkauth", { token: token })
           .then(res => {
             res.data ? this.setState({ loggedIn: true }) : localStorage.clear();
           });
@@ -51,19 +51,19 @@ const Authentication = JokesPage => Login => Register =>
 
     handleLogout = () => {
       localStorage.clear();
-      this.setState({ loggedIn: false })
+      this.setState({ loggedIn: false });
     };
 
     conditionalRender = () => {
       if (this.state.loggedIn) {
-        return (
-          <JokesPage
-            handleLogout={this.handleLogout}
-          />
-        );
+        return <JokesPage handleLogout={this.handleLogout} />;
       } else {
         if (this.state.registering) {
-          return <Register toggleRegister={this.toggleRegister} />;
+          return (
+            <Register
+              toggleRegister={this.toggleRegister}
+            />
+          );
         } else {
           return (
             <Login
